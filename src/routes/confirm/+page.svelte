@@ -10,8 +10,8 @@
     onMount(async () => {
         try {
             const response = await fetch('/api/confirmation');
-            const data = await response.json();
-            isConfirmed = data.length > 0;
+            const [data] = await response.json();
+            isConfirmed = data?.confirmed ?? false;
             if (isConfirmed) {
                 showConfetti = true;
             }
