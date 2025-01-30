@@ -70,16 +70,10 @@
         // Check if all words are completed
         if (completedWords.every(completed => completed)) {
             message = '¡Correcto! ❤️';
-            try {
-                fetch('/api/token', {
-                    method: 'PUT',
-                });
-                setTimeout(() => {
-                    goto('/timeline');
-                }, 1500);
-            } catch (error) {
-                console.error('Failed to create token:', error);
-            }
+            // Redirect to timeline after a short delay
+            setTimeout(() => {
+                goto('/timeline');
+            }, 1500);
         } else {
             message = 'Intenta de nuevo...';
         }
